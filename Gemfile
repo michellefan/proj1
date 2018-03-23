@@ -13,7 +13,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails', '5.4.5'
-gem 'devise'
+#gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise' #, ref: '88e9a85'
 gem 'simple_form'
 gem 'jquery-rails'
 
@@ -34,7 +35,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
   gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'binding_of_caller', '>= 0.8.0'
   gem 'rails_layout'
 end
 
