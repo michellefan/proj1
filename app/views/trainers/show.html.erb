@@ -4,6 +4,9 @@
 <tbody>
   Pokemon:
 </br>
+  <% if @trainer == current_trainer %>
+    <%= button_to "Create Pokemon!", new_pokemon_path, :class => "button medium", :method => :get %>
+  <% end %>
 </br>
   <% @trainer.pokemons.each do |pokemon| %>
     <% if pokemon.ndex %>

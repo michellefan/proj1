@@ -19,6 +19,22 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    pokemon = Pokemon.create(params)
+    pokemon = Pokemon.create(pokemon_params)
+    pokemon.trainer = current_trainer
+    if pokemon.save
+      redirect_to trainer_path(current_trainer)
+    else
+      flash[:error] = pokemon.errors.full_messages.to_sentence
+      redirect_to new_pokemon_path
+    end
+  end
+
+  def new
+    @pokemon = Pokemon.new
+  end
+
+  private
+  def pokemon_params
+    params.require(:pokemon).permit(:name, :ndex)
   end
 end
